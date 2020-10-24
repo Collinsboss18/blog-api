@@ -1,6 +1,6 @@
 {
     "env": {
-        "MONGO_ATLAS_PASS": "",
-        "JWT_KEY": "secret"
+        "MONGO_ATLAS_PASS": "e030acadf4d5d70f2110888e10123e338399c30fe7b2ef849718cdd88afc",
+        "JWT_KEY": "d16169c69daf142d20071cef174f75d75c97283911995e1987b2ec4f8b1b"
     }
 }

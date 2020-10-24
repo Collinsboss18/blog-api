@@ -26,7 +26,7 @@
 
 ## Contributing
 
-> Feel free to fork the repository and send pull request or reach out easily to me via _twitter_ => [Kater Akeren](https://twitter.com/katerakeren)
+> Feel free to fork the repository and send pull request or reach out easily to me via _email_ => (collinspro18@gmail.com)
 
 ## Security Vulnerabilities
 
@@ -34,7 +34,7 @@ If you discover a security vulnerability within the project, please create an is
 
 ## Aknowledgement
 
-> I greatly acknowledge and appreciate the immense contribution of my mentor **[Maximilian Schwarzmüller](https://twitter.com/maxedapps)**.
+> I greatly acknowledge and appreciate the immense contribution.
 
 ## License
 

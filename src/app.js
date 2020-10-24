@@ -6,8 +6,8 @@ const mongoose = require('mongoose');
 /*
  ** imported the apis from the api>routes directory
  */
-const productRoutes = require('./api/routes/products');
-const orderRoutes = require('./api/routes/orders');
+const categoryRoutes = require('./api/routes/category');
+const postRoutes = require('./api/routes/posts');
 const userRoutes = require('./api/routes/users');
 
 if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
@@ -20,7 +20,7 @@ app.use(bodyParser.json());
  ** Handling Cross Origin Resource Sharing (CORS))
  */
 app.use((req, res, next) => {
-	res.header('Acess-Control-Allow-Origin', '*');
+	res.header('Access-Control-Allow-Origin', '*');
 	res.header(
 		'Access-Control-Allow-Headers',
 		'Origin, X-Requested-With, Content-Type, Accept, Authorization'
@@ -35,9 +35,9 @@ app.use((req, res, next) => {
 /*
  ** Routes middleware
  */
-app.use('/products', productRoutes);
-app.use('/orders', orderRoutes);
-app.use('/users', userRoutes);
+app.use('api/categories', categoryRoutes);
+app.use('api/posts', postRoutes);
+app.use('api/users', userRoutes);
 
 app.use((req, res, next) => {
 	const error = new Error('oops! - Not Found');
