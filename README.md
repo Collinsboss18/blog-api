@@ -3,22 +3,7 @@
 > **Node JS** is an open-source, cross-platform, JavaScript runtime environment that executes JavaScript code outside of a browser - (Wikipedia) [Read more with an exmaple](https://nodejs.org/en/about/)
 
 ## Endpoints
-
-| Methods | Endpoints      | Description       | Access  |
-| ------- | -------------- | ----------------- | ------- |
-| POST    | /users/signup  | Create an account | Public  |
-| POST    | /users/login   | Login             | Private |
-| POST    | /users/{id}    | Delete account    | Private |
-| POST    | /products      | Create product    | Private |
-| GET     | /products      | Get all products  | Public  |
-| PATCH   | /products/{id} | Update a product  | Private |
-| DELETE  | /products/{id} | Delete a product  | Private |
-| GET     | /products/{id} | Get a product     | Public  |
-| POST    | /orders        | Create order      | Private |
-| GET     | /orders        | Get all orders    | Private |
-| PATCH   | /orders/{id}   | Update an order   | Private |
-| DELETE  | /orders/{id}   | Delete an order   | Private |
-| GET     | /orders/{id}   | Get an order      | Private |
+...
 
 ## Server Requirement
 
