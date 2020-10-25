@@ -7,7 +7,8 @@ const { connect } = require('mongoose');
 			useCreateIndex: true,
 			useFindAndModify: false
 		});
-	} catch (error) {
-		console.log('Error', error);
+		console.log("Connected " + process.env.MONGODB_URL)
+	} catch (err) {
+		console.log('Error', err);
 	}
 })();

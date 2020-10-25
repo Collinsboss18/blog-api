@@ -3,39 +3,39 @@ const Category = require('../models/category');
 
 exports.getAllCategories = async (req, res, next) => {
 	try {
-		const categories = await Category.find().select('_id, name, date').sort({ date: -1 }).exec();
+		const categories = await Category.find().select('_id name date').sort({ date: -1 }).exec();
 		if (!categories.length > 0) {
-			res.status(404).json({ message: 'No Order Available' });
+			res.status(404).json({ message: 'No Category Available' });
 		} else {
 			const queryResult = {
 				count: categories.length,
 				categories: categories.map((category) => {
 					return {
-						date: category.quantity,
-						name: category.product,
 						_id: category._id,
+						name: category.name,
+						date: category.date,
 					};
 				}),
 			};
 			return res.status(200).json(queryResult);
 		}
 	} catch (err) {
-		res.status(500).json({ error: err });
+		res.status(500).json({ error: err.message });
 	}
 };
 
 exports.createCategory = (req, res, next) => {
 	try {
-		if (!name) return res.status(404).json({ message: 'Product Not Found' });
+		if (!req.body.name) return res.status(404).json({ message: 'Provide category name' });
 
-		const newCategory = new Category({ _id: mongoose.Types.ObjectId(), name });
+		const newCategory = new Category({ _id: mongoose.Types.ObjectId(), name: req.body.name });
 		newCategory.save();
 		res.status(201).json({
 			message: 'Category created',
 			categoryCreated: {
-				_id: result._id,
-				name: result.name,
-				date: result.date,
+				_id: newCategory._id,
+				name: newCategory.name,
+				date: newCategory.date,
 			},
 			request: {
 				type: 'POST',
@@ -43,7 +43,7 @@ exports.createCategory = (req, res, next) => {
 			},
 		});
 	} catch (err) {
-		res.status(500).json({ error: err });
+		res.status(500).json({ error: err.message });
 	}
 };
 
@@ -61,7 +61,7 @@ exports.getCategory = async (req, res, next) => {
 			},
 		});
 	} catch (err) {
-		res.status(500).json({ error: err });
+		res.status(500).json({ error: err.message });
 	}
 };
 
@@ -78,11 +78,11 @@ exports.updateCategory = async (req, res, next) => {
 			},
 		});
 	} catch (err) {
-		res.status(500).json({ error: err });
+		res.status(500).json({ error: err.message });
 	}
 };
 
-exports.deleteOrder = (req, res, next) => {
+exports.deleteCategory = (req, res, next) => {
 	const categoryID = req.params.categoryID;
 	try {
 		Category.remove({ _id: categoryID });
@@ -96,6 +96,6 @@ exports.deleteOrder = (req, res, next) => {
 			},
 		});
 	} catch (err) {
-		res.status(500).json({ error: err });
+		res.status(500).json({ error: err.message });
 	}
 };

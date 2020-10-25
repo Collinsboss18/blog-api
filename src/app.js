@@ -3,12 +3,6 @@ const app = express();
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-/*
- ** imported the apis from the api>routes directory
- */
-const categoryRoutes = require('./api/routes/category');
-const postRoutes = require('./api/routes/posts');
-const userRoutes = require('./api/routes/users');
 
 if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
 app.use('/uploads', express.static('uploads'));
@@ -33,11 +27,12 @@ app.use((req, res, next) => {
 });
 
 /*
+ ** imported the apis from the api>routes directory
  ** Routes middleware
  */
-app.use('api/categories', categoryRoutes);
-app.use('api/posts', postRoutes);
-app.use('api/users', userRoutes);
+app.use('/api/categories', require('./api/routes/category'));
+app.use('/api/posts', require('./api/routes/posts'));
+app.use('/api', require('./api/routes/users'));
 
 app.use((req, res, next) => {
 	const error = new Error('oops! - Not Found');

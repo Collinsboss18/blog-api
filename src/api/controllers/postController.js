@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Post = require('../models/post');
 
-exports.getAllPosts = (req, res, next) => {
+exports.getAllPosts = async (req, res, next) => {
 	//Getting all the post
 	try {
 		const post = await Post.find().select('_id, name, body, postImage, timestamp').sort({ timestamp: -1 }).exec();
@@ -100,7 +100,7 @@ exports.updatePost = (req, res, next) => {
 	}
 };
 
-exports.deleteProduct = (req, res, next) => {
+exports.deletePost = (req, res, next) => {
 	const postID = req.params.postID;
 	//Delete a single product
 	try {
